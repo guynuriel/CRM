@@ -1,0 +1,76 @@
+body{
+  background-color: burlywood;
+}
+
+#clientHeader{
+  background-color: rgb(243, 146, 66);
+}
+
+td{
+  text-align: center;
+  border-bottom: 3px solid   rgb(243, 146, 66);
+  
+}
+
+.link{
+  margin-left: 40px
+}
+
+#navBar{
+  background-color: rgb(243, 146, 66);
+  height: 40px;
+}
+
+#clientInput{
+  background-color:  rgb(243, 146, 66);
+  margin-left: 6vw;
+}
+
+.oneToTen{
+  margin-left: 80px;
+}
+
+.badges{
+  display: inline-block; 
+  margin-left: 100px;
+  height: 70px;
+  width: 150px;
+}
+/* #clientspage{
+  
+} */
+
+#clientTable{
+  margin-top: 25px;
+  width: 100%;
+}
+
+
+#clientInput{
+  margin-top: 15px
+}
+
+#popup{
+  position: absolute;
+  background-color: rgb(131, 63, 0);
+  height: 80px;
+  width: 250px;
+  margin-left: 250px;
+  margin-top: 150px;
+  padding: 5%;
+  border-radius: 40px
+}
+
+.popupInput{
+  position: absolute;
+  right: 35px
+}
+
+#popupclick{
+  background-color: gold;
+  border-radius: 30px;
+  width: 100px;
+  margin-left: 115px;
+
+}
+
