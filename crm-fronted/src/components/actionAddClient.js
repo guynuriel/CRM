@@ -47,17 +47,17 @@ class actionAddClient extends Component {
     render() {
         
         return(
-            <div>
+            <div id="addClientBox" >
                 <h1>ADD CLIENT</h1>
-                Name <input type="text" onChange={this.nameInput} placeholder="Name"/>
+                Name <input className="actionAddInout" type="text" onChange={this.nameInput} placeholder="Name"/>
                 <br />
-                Surname <input type="text" onChange={this.surNameInput}  placeholder="  Sur name"/>
+                Surname <input className="actionAddInout" type="text" onChange={this.surNameInput}  placeholder="  Sur name"/>
                 <br />
-               Country <input type="text" onChange={this.countryInput}  placeholder="Country name"/>
+               Country <input className="actionAddInout" type="text" onChange={this.countryInput}  placeholder="Country name"/>
                 <br />
-                Owner <input type="text" onChange={this.ownerInput}  placeholder="Owner name"/>
+                Owner <input className="actionAddInout" type="text" onChange={this.ownerInput}  placeholder="Owner name"/>
                 <br/>
-                <button onClick={this.addingClient}>Add New Client</button>
+                <a onClick={this.addingClient} class="waves-effect waves-light btn">Add New Client</a>
             </div>
         )
     }

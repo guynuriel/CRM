@@ -37,17 +37,18 @@ class App extends Component {
     await this.gettingClients()
   }
 
+
   render() {
     return (
       <Router>
-        <div className="App">
-          <div id="navBar">
-            <Link to="/Clients" ><span className="link">Clients</span></Link>
-            <Link to="/Actions" ><span className="link" > Actions </span> </Link>
-            <Link to="/Analytics" ><span className="link"> Analytics </span></Link>
+        <div>
+          <div  className="row center-align #ff9800 orange">
+            <Link className="col s4" to="/Clients" ><span className="link">Clients</span></Link>
+            <Link className="col s4" to="/Actions" ><span className="link" > Actions </span> </Link>
+            <Link className="col s4" to="/Analytics" ><span className="link"> Analytics </span></Link>
           </div>
           <br />
-          <div id="body" >
+          <div className="#fff3e0 orange lighten-5">
             <Route path="/" exact component={LandingPage} />
             <Route path="/Clients" exact render={() => <Clients clients={this.state.clients} updateClient={this.updateClient} />} />
             <Route path="/Actions" exact render={() => <Action updateClient={this.updateClient} deleteClient={this.deleteClient} clients={this.state.clients} addingClient={this.addingClient} />} />

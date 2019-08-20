@@ -30,11 +30,11 @@ class Badges extends Component {
     }
     render() {
         return (
-            <div>
-                <div className="badges" > <i class="fas fa-chart-line"></i> new clients in {this.newclients()[1]} :  {this.newclients()[0]}</div>
-                <div className="badges"> <i class="fas fa-envelope"></i> Emails Sent : {this.emailsent()}</div>
-                <div className="badges"> <i class="fas fa-user-circle"></i> Outstanding Clients : {this.notsold()} </div>
-                <div className="badges"> <i class="fas fa-globe-americas"></i>  Hottest Country : {this.hotcountry().name},{this.hotcountry().num} sales  </div>
+            <div className="row">
+                <div className="col s3"  > <i class="fas fa-chart-line fa-5x"></i> new clients in {this.newclients()[1]} :  {this.newclients()[0]}</div>
+                <div className="col s3"> <i class="fas fa-envelope fa-5x"></i> Emails Sent : {this.emailsent()}</div>
+                <div className="col s3"> <i class="fas fa-user-circle fa-5x"></i> Outstanding Clients : {this.notsold()} </div>
+                <div className="col s3"> <i class="fas fa-globe-americas fa-5x "></i>  Hottest Country : {this.hotcountry().name},{this.hotcountry().num} sales  </div>
             </div>
         )
     }

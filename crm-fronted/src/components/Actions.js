@@ -30,17 +30,18 @@ class Actions extends Component {
     render() {
 
         return (
-            <div>
-                <div id="update">
+            <div className="row ">
+                <div className=" col s3">
                     <h1>UPDATE</h1>
-                    Client :
-                    <input type="text" value={this.state.clientName} list="clientsOption" onChange={this.clientNameChanger} placeholder="Client name" />
-                    <datalist id="clientsOption">
-                        {this.props.clients.map(c => {
-                            return <option value={c.name} />
-                        })}
-                    </datalist>
-                    <button onClick={this.deleteClient} >delete</button>
+                    Client :<div>
+                        <input type="text" value={this.state.clientName} list="clientsOption" onChange={this.clientNameChanger} placeholder="Client name" />
+                        <datalist>
+                            {this.props.clients.map(c => {
+                                return <option value={c.name} />
+                            })}
+                        </datalist>
+                        <a onClick={this.deleteClient} class="waves-effect waves-light btn">delete</a>  
+                    </div>
                     <br />
                     <ActionTransfer clients={this.props.clients} clientName={this.state.clientName} updateClient={this.props.updateClient} />
                     <br />
@@ -48,8 +49,8 @@ class Actions extends Component {
                     <br />
                     <ActionSold clients={this.props.clients} clientName={this.state.clientName} updateClient={this.props.updateClient} />
                 </div>
-                <hr></hr>
-                <div id="addClient">
+                <div className="col s3"></div>
+                <div className=" col s6">
                     <ActionAddClient addingClient={this.props.addingClient} />
                 </div>
             </div>

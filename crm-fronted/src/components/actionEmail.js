@@ -4,20 +4,20 @@ class actionEmail extends Component {
     constructor() {
         super()
         this.state = {
-            emailType: "A",
+            email: "",
         }
     }
 
-    stateEmailTypeChanger = (e) => {
+    stateEmailChanger = (e) => {
         let type = e.target.value
-        this.setState({ emailType: type })
+        this.setState({ email: type })
     }
 
     changerEmailTypeFunction = () => {
         let client = this.props.clients.find(c => c.name.toLowerCase() === this.props.clientName.toLowerCase())
-        if (this.state.emailType !== "" && client) {
-            this.props.updateClient("emailType", this.state.emailType, client._id)
-            alert("email type is changed")
+        if (this.state.email !== "" && client) {
+            this.props.updateClient("email", this.state.email, client._id)
+            alert("email is changed")
         }
         else { alert("email type input or client name input is undefined") }
     }
@@ -26,14 +26,11 @@ class actionEmail extends Component {
     render() {
 
         return (
-            <div>
-                send email : <select onChange={this.stateEmailTypeChanger} >
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                </select> <button onClick={this.changerEmailTypeFunction}  >send</button>
-
+            <div>Email:
+                <div  >
+                    <input type="text" placeholder="type client's Email" onChange={this.stateEmailChanger}/>
+                    <a onClick={this.changerEmailTypeFunction} class="waves-effect waves-light btn">send</a>
+                </div>
             </div>
         )
     }

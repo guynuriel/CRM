@@ -25,10 +25,11 @@ class actionTransfer extends Component {
     render() {
 
         return (
-            <div>
-                Transfer ownership to :
-                    <input type="text" value={this.state.transferOwner} onChange={this.transferOwnerChanger} />
-                <button onClick={this.tranfer} >Transfer</button>
+            <div>Transfer ownership to :
+                <div>
+                    <input  placeholder="Owner Name" type="text" value={this.state.transferOwner} onChange={this.transferOwnerChanger} />
+                    <a onClick={this.tranfer} class="waves-effect waves-light btn">Transfer</a>                   
+                </div>
             </div>
         )
     }

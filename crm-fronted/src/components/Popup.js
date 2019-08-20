@@ -10,7 +10,10 @@ class Popup extends Component {
         }
     }
 
-
+    popupChange=()=>{
+        this.props.popupChange()
+    }
+    
     nameInput = (e) => {
         let input = e.target.value
         this.setState({ name: input })
@@ -49,11 +52,12 @@ class Popup extends Component {
         let client = this.props.client
         return (
             <div id="popup">
-                Name:       <input type="text" className="popupInput" placeholder={client.name.split(" ", 2)[0]} value={this.state.name} onChange={this.nameInput} />
+                <button onClick={this.popupChange} className="x">x</button>
+                <span > Name: </span>      <input className="popupText" type="text" className="popupInput" placeholder={client.name.split(" ", 2)[0]} value={this.state.name} onChange={this.nameInput} />
                 <br></br>
-                SurName:    <input type="text" className="popupInput" placeholder={client.name.split(" ", 2)[1]} value={this.state.surname} onChange={this.surNameInput} />
+                <span >SurName:</span>    <input className="popupText" type="text" className="popupInput" placeholder={client.name.split(" ", 2)[1]} value={this.state.surname} onChange={this.surNameInput} />
                 <br></br>
-                Country:    <input type="text" className="popupInput" placeholder={client.country} value={this.state.country} onChange={this.countryInput} />
+                <span >Country:</span>    <input className="popupText" type="text" className="popupInput" placeholder={client.country} value={this.state.country} onChange={this.countryInput} />
                 <br></br>
                 <button id="popupclick" onClick={this.updateClient} >UPDATE</button>
             </div>

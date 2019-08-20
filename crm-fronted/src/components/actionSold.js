@@ -21,9 +21,10 @@ class actionSold extends Component {
     render() {
 
         return (
-            <div>
-                <span>Declare sale</span>
-                <button onClick={this.soldChanger} >Declare</button>
+            <div>Declare sale
+                <div>
+                    <a onClick={this.soldChanger} class="waves-effect waves-light btn">Declare</a>   
+                </div>
             </div>
         )
     }

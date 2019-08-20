@@ -14,14 +14,14 @@ class Client extends Component {
     render() {
         let c = this.props.client
         return (
-            <tr onClick={this.popupChange} className="client">
-                <td className="text">{c.name.split(" ", 2)[0]}</td>
-                <td className="text">{c.name.split(" ", 2)[1]}</td>
-                <td className="text">{c.country}</td>
-                <td className="text">{c.firstContact.slice(0, 10)}</td>
-                <td className="text">{c.emailType}</td>
-                <td className="text">{c.sold ? "Y" : "N"}</td>
-                <td className="text">{c.owner}</td>
+            <tr onClick={this.popupChange} >
+                <td className="center-align">{c.name.split(" ", 2)[0]}</td>
+                <td className="center-align">{c.name.split(" ", 2)[1]}</td>
+                <td className="center-align">{c.country}</td>
+                <td className="center-align">{c.firstContact.slice(0, 10)}</td>
+                <td className="center-align">{c.email}</td>
+                <td className="center-align">{c.sold ? "Y" : "N"}</td>
+                <td className="center-align">{c.owner}</td>
             </tr>
         )
     }

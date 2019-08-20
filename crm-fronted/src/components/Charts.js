@@ -98,69 +98,74 @@ class Charts extends Component {
 
   render() {
     return (
-      <div>
-        <h3> Top Employees </h3>
-        <BarChart
-          width={500}
-          height={300}
-          data={this.topemployees()}
-          margin={{
-            top: 5, right: 30, left: 20, bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="sold" fill="#82ca9d" />
-        </BarChart>
-        <h3>Sales By</h3>  <div className='input'>
-          <select className="browser-default col s2" name='search' type='select-one' onChange={this.search} value={this.state.search}>
-            <option value='country'>country</option>
-            <option value='emailType'>emailType</option>
-            <option value='owner'>owner</option>
-            <option value='month'>month</option>
-          </select>
+      <div className="row">
+        <div className="col s6">
+          <h3> Top Employees </h3>
+          <BarChart
+            width={400}
+            height={300}
+            data={this.topemployees()}
+            margin={{
+              top: 5, right: 30, left: 20, bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="sold" fill="#82ca9d" />
+          </BarChart>
+          </div>
+          <div className="col s6">
+          <h3>Sales By</h3>  <div className='input'>
+            <select className="browser-default #ffcc80 orange lighten-3" name='search' type='select-one' onChange={this.search} value={this.state.search}>
+              <option value='country'>country</option>
+              <option value='emailType'>emailType</option>
+              <option value='owner'>owner</option>
+              <option value='month'>month</option>
+            </select>
+          </div>
+
+          <BarChart
+            width={400}
+            height={300}
+            data={this.salesperx(this.state.search)}
+            margin={{
+              top: 5, right: 30, left: 20, bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="sold" fill="red" />
+          </BarChart>
         </div>
+        <div className="col s6">
+          <h3>sales since {this.saleslast30days()[1]} {this.saleslast30days()[2]}</h3>
+          <LineChart
+            width={400}
+            height={300}
+            data={this.saleslast30days()[0]}
+            margin={{
+              top: 5, right: 30, left: 20, bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey='sales' stroke="#8884d8" activeDot={{ r: 8 }} />
 
-        <BarChart
-          width={1000}
-          height={300}
-          data={this.salesperx(this.state.search)}
-          margin={{
-            top: 5, right: 30, left: 20, bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="sold" fill="red" />
-        </BarChart>
-
-        <h3>sales since {this.saleslast30days()[1]} {this.saleslast30days()[2]}</h3>
-        <LineChart
-          width={800}
-          height={300}
-          data={this.saleslast30days()[0]}
-          margin={{
-            top: 5, right: 30, left: 20, bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey='sales' stroke="#8884d8" activeDot={{ r: 8 }} />
-
-        </LineChart>
-        <h3>Client Acquisition</h3>
-        <div className='pie'>
-          <Pie data={this.props.data} />
-        </div>
+          </LineChart>
+          </div>
+          <div className="col 3 ">
+          <h3>Client Acquisition</h3>
+            <Pie data={this.props.data} />
+          </div>
       </div>
     )
   }

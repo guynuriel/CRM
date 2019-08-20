@@ -27,12 +27,13 @@ class Clients extends Component {
 
     changeInput = (e) => {
         let input = e.target.value
-        this.setState({ input: [input] })
+        this.setState({ input: [input], page: 1 })
     }
 
     selectChange = (e) => {
         let select = e.target.value
         this.setState({ select: [select] })
+
     }
 
     popupChange = () => {
@@ -54,36 +55,41 @@ class Clients extends Component {
         let input = [...this.state.input]
         let clients = [...this.props.clients]
         return (
-            <div id="clientspage">
+            <div>
                 {this.state.popup ? <Popup Clients={this.props.clients} popupChange={this.popupChange} updateClient={this.props.updateClient} client={this.state.popupClient} /> : <div></div>}
-                <div id="clientInput">
-                    search:<input placeholder="type the name" type="text" value={this.state.input} onChange={this.changeInput} />
-
-                    
-                    <select id="select-input" onChange={this.selectChange} >
-                        <option value="name" >Name</option>
-                        <option value="country" >country</option>
-                        <option value="firstContact" >First Contact</option>
-                        <option value="owner" >Owner</option>
-
-                    </select>
-                    <span className="oneToTen" onClick={this.pageMinusChange} >{"<"}{(this.state.page * 10) - 10} </span>
-                    <span className="oneToTen" onClick={this.pagePlusChange} >{this.state.page * 10}{">"} </span>
+                <div className="row" >
+                    <div className="col s6">
+                        <input placeholder="Search" type="text" value={this.state.input} onChange={this.changeInput} />
+                    </div>
+                    <div className="input col s4 ">
+                        <select className="browser-default  #ffcc80 orange lighten-3 " type='select-one' onChange={this.selectChange} defaultValue="name" >
+                            <option value="name" >Name</option>
+                            <option value="country" >country</option>
+                            <option value="firstContact" >First Contact</option>
+                            <option value="owner" >Owner</option>
+                        </select>
+                    </div>
+                    <div className="col s1" onClick={this.pageMinusChange} ><i class="fas fa-arrow-left"></i>{(this.state.page * 10) - 10} </div>
+                    <div className="col s1" onClick={this.pagePlusChange} >{this.state.page * 10}<i class="fas fa-arrow-right"></i> </div>
                 </div>
-                <table id="clientTable">
-                    <tr id="clientHeader">
-                        <th className="text">Name</th>
-                        <th className="text">Surname</th>
-                        <th className="text">Country</th>
-                        <th className="text">First-Contact</th>
-                        <th className="text">Email type</th>
-                        <th className="text">Sold</th>
-                        <th className="text">Owner</th>
-                    </tr>
-                    {clients.filter(f => f[select[0]].toLowerCase().includes(input[0].toLowerCase())).slice((this.state.page * 10) - 10, (this.state.page * 10)).map(c => {
-                        return <Client client={c} popupID={this.popupIdChange} popupChange={this.popupChange} />
-                    }
-                    )}
+                <table>
+                    <thead>
+                        <tr className="center-align #ff9800 orange">
+                            <th className="center-align">Name</th>
+                            <th className="center-align">Surname</th>
+                            <th className="center-align">Country</th>
+                            <th className="center-align">First-Contact</th>
+                            <th className="center-align">Email</th>
+                            <th className="center-align">Sold</th>
+                            <th className="center-align">Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {clients.filter(f => f[select[0]].toLowerCase().includes(input[0].toLowerCase())).slice((this.state.page * 10) - 10, (this.state.page * 10)).map(c => {
+                            return <Client client={c} popupID={this.popupIdChange} popupChange={this.popupChange} />
+                        }
+                        )}
+                    </tbody>
                 </table>
             </div>
         )
